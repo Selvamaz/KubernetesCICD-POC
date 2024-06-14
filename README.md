@@ -34,7 +34,7 @@
     c. Must put Selva_Linux_April_2024.pem inside /var/lib/jenkins/*anywhere*/key.pem<br />
     d. Check ```ansible -m all ping```  -> has to be success<br />
     e. ```chown jenkins:jenkins -R /var/lib/jenkins/*anywhere*/key.pem```<br /> 
-    f. ```chmod 600 /var/lib/jenkins/*anywhere*/key.pem```<br /> [```sometime chown jenkins:jenkins -R key.pem```] is needed
+    f. ```chmod 600 /var/lib/jenkins/*anywhere*/key.pem```[```sometime chown jenkins:jenkins -R key.pem```] is needed <br /> 
     g. FYI : No need to give ansible path to jenkins it may rise some issues
     i. Open /etc/ansible/ansible.cfg and paste
      ```
