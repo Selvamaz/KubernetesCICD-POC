@@ -1,5 +1,7 @@
 # Kubernetes CI CD Pipeline
 
+![plot](./path.png)
+
 >[!Note]
 >### Pipeline Path
 >Github -> Jenkins Master Server [Maven -> Sonarqube -> Ansible (Master)] -> Ansible Slave Server [Kubernetes and Docker]
