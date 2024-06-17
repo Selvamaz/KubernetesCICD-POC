@@ -187,6 +187,32 @@
 10. Check slave machine for the file, deployment and pod.
 11. Check for http://kube_node:nodeport/app_name
 
+## Install Prometheus 
+1. Create 1 EC2 instances for Prometheus Master
+2. wget prometheus -> untar using tar -xvzf package_name -> ```mv package_name /opt/prometheus```
+3. ```cp  prometheus /usr/local/bin```
+5. Open prometheus.yml is the configurable file (target is the place we need to give slave ip address)
+6. ./promethus —config.file=prometheus.yml & (it will run in the background)
+7. check http://master_ip:9090 for prometheus application
+8. To check metrics ```http://master_ip:9090/metrics```
+9. Install prometheus node exporter in all other servers
+10. wget node exporter -> wget link -> install in /opt/nodeexporter
+11. ./node_exporter & (install and running itself is enough)
+12. Master Machine -> prometheus.yml -> copy job_name to targets -> duplicate -> change job name to our desire -> targets: [ “slave_ip:9100”] -> save and restart
+13. We can give many slave machines using this
+14. ```ps -ef ! grep prometheus``` -> ```kill -9 prometheus.yaml_process``` -> (to kill prometheus process in the background) 
+15. ```./promethus —config.file=prometheus.yml``` & (to start again)
+16. Refresh -> Check In master machine -> Prometheus -> status -> targets 
+17. Graph -> Graph -> give ur fav tools in search -> Execute (use control select to see multiple node output in same graph)
+
+## Install Grafana
+1. install grafana -> rename /opt/grafan
+2. get into bin directory of grafana -> ./grafana-server &
+3. open ```http://master_ip:3000``` -> admin -> admin 
+4. Datasource -> Prometheus -> ```http://master_ip:9090``` -> save and test -> Explore side tab
+5. Explore -> metric (cpu) -> label :job -> node exporter -> run query
+6. Dashboard -> new - import -> online grafana dashboard for prometheus datasource and node exporter collector type -> copy id -> import (9894 is the most used dashboard)
+
 >[!Note]
 >```ansible-playbook /var/lib/jenkins/workspace/ansible.yaml  -u deploy``` # manually run playbook in master server
 >
