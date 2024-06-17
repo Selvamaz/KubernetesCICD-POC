@@ -1,6 +1,6 @@
 # Kubernetes CI CD Pipeline
 
-![plot](./path.png)
+![plot](./Path.png)
 
 >[!Note]
 >### Pipeline Path
