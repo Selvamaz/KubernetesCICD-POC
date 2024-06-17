@@ -33,8 +33,8 @@
     b. Open /etc/ansible/hosts -> Add -> ```[dev] Node1 ansible_host=13.126.158.235 ansible_user=ubuntu ansible_ssh_private_key_file=~./key.pem```<br />
     c. Must put Selva_Linux_April_2024.pem inside /var/lib/jenkins/*anywhere*/key.pem<br />
     d. Check ```ansible -m all ping```  -> has to be success<br />
-    e. ```chown jenkins:jenkins -R /var/lib/jenkins/*anywhere*/key.pem```<br />
-    f. ```chmod 600 /var/lib/jenkins/*anywhere*/key.pem```<br />
+    e. ```chown jenkins:jenkins -R /var/lib/jenkins/*anywhere*/key.pem```<br /> 
+    f. ```chmod 600 /var/lib/jenkins/*anywhere*/key.pem```[```sometime chown jenkins:jenkins -R key.pem```] is needed <br /> 
     g. FYI : No need to give ansible path to jenkins it may rise some issues
     i. Open /etc/ansible/ansible.cfg and paste
      ```
